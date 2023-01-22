@@ -1,7 +1,12 @@
 .bg-tierra {
-    background-color: rgb(115, 76, 88);
+    background-color: #7a4a58;
 }
 
 .bg-gris {
-    background-color: rgb(200, 198, 203);
+    background-color: #c8c6cb;
+}
+
+.btn {
+    /* border radius 0 */
+    border-radius: 0;
 }
