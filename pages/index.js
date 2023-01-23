@@ -1,10 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home () {
   return (
@@ -24,9 +19,11 @@ export default function Home () {
               <br />
               GitHub: <a href='https://github.com/daniel7byte/technical-test-frontend'>https://github.com/daniel7byte/technical-test-frontend</a>
             </p>
-            <Link href={'/products/1'} className={'text-center mt-3 buttom btn-primary'}>
-              <button type="button" class="btn text-white bg-red-wine">Ir a la página</button>
-            </Link>
+            <div className='text-center'>
+              <Link href={'/products/1'} className={'btn btn-danger text-white bg-red-wine mt-3'}>
+                Ir a la página
+              </Link>
+            </div>
           </div>
         </div>
       </main>
