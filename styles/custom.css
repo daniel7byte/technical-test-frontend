@@ -1,12 +1,30 @@
-.bg-tierra {
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+.bg-red-wine {
     background-color: #7a4a58;
 }
 
-.bg-gris {
-    background-color: #c8c6cb;
+.bg-gray {
+    background-color: #dadada;
 }
 
-.btn {
-    /* border radius 0 */
-    border-radius: 0;
+.text-red-wine {
+    color: #7a4a58;
+}
+
+.text-dark-gray {
+    color: #4e4e4e;
+}
+
+.text-gray {
+    color: #c8c6cb;
+}
+
+.text-serif {
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
 }

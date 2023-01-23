@@ -4,12 +4,12 @@ import Image from 'next/image'
 export default function Navbar () {
   return (
     <>
-      <div className={"container-fluid bg-tierra"}>
+      <div className={"container-fluid bg-red-wine"}>
         <div className={"container"}>
           <p className={"my-0 py-2 h5 text-white text-center"}>HOT SALE - 3% EN SANDALIAS</p>
         </div>
       </div>
-      <div className={"container-fluid  bg-gris"}>
+      <div className={"container-fluid  bg-gray"}>
         <div className={"container"}>
           <div className={"row text-end"}>
             <p className='my-0'>
@@ -30,10 +30,10 @@ export default function Navbar () {
             </div>
             <div className={'col-3'}>
               <div className={'row'}>
-                <input type="email" className="form-control  my-2" placeholder="Buscar" />
+                <input type="email" className="form-control  my-2 rounded-0" placeholder="Buscar" />
               </div>
               <div className={'row'}>
-                <p className='text-end'>
+                <p className='text-end text-red-wine'>
                   ENVÍOS GRATIS PARA PEDIDOS SUPERIORES A $300.000
                 </p>
               </div>
@@ -43,7 +43,7 @@ export default function Navbar () {
       </div>
       <div className={'content-fluid'}>
         <div className={'container'}>
-          <div className={'row justify-content-between'}>
+          <div className={'row justify-content-between text-serif'}>
             <div className={'col-6'}>
               <span className={'my-0 py-2 pe-3'}>HOMBRE</span>
               <span className={'my-0 py-2 pe-3'}>MUJER</span>
