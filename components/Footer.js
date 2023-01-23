@@ -1,5 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { Facebook, Instagram } from "react-feather"
 
 export default function Footer () {
   return (
@@ -19,13 +18,9 @@ export default function Footer () {
             </div>
           </div>
           <div className={'row justify-content-center'}>
-            <div className={'col-1'}>
-              Facebook
-              {/* <Image src={'/logo.svg'} width={'100'} height={'100'} /> */}
-            </div>
-            <div className={'col-1'}>
-              Instagram
-              {/* <Image src={'/logo.svg'} width={'100'} height={'100'} /> */}
+            <div className="col-1">
+              <Facebook className="me-1" />
+              <Instagram className="me-1" />
             </div>
           </div>
         </div>
