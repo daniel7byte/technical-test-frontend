@@ -2,8 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
-import RelatedProducts from '../../components/RelatedProducts'
+import RelatedProduct from '../../components/RelatedProduct'
 import RecommendedProducts from '../../components/RecommendedProducts'
+
+// JSON
+import DataProducts from '../../json/products'
 
 export default function Home () {
   return (
@@ -44,7 +47,7 @@ export default function Home () {
             </div>
           </div>
           <div className={'col-6'}>
-            <h1 className='h3 text-serif'>ZAPATILLA HOMBRE PELIKAN</h1>
+            <h1 className='h3 text-serif text-dark-gray'>ZAPATILLA HOMBRE PELIKAN</h1>
             <p className='my-1 text-red-wine text-serif'>$90.000</p>
             <p className='my-1 text-black-50'>Cod. de producto zap-005</p>
             <p className='my-1 mt-3'>COLOR</p>
@@ -91,7 +94,9 @@ export default function Home () {
               </div>
             </div>
             <p className='my-1 mt-3 text-decoration-underline'>GUÍA DE TALLAS</p>
-            <button type="button" className="px-5 py-2 mt-3 btn btn-primary bg-red-wine rounded-0 border border-warning-subtle">AÑADIR AL CARRITO</button>
+            <button type="button" className="px-5 py-2 mt-3 btn text-white bg-red-wine rounded-0 border border-warning-subtle">
+              AÑADIR AL CARRITO
+            </button>
           </div>
         </div>
         <div className={'row'}>
@@ -108,7 +113,24 @@ export default function Home () {
             <p className='text-black-50'>Curabitur rutrum, quam a rutrum blandit, nisl est maximus nisl, a mattis mauris tellus id lorem. Phasellus tempus felis vel quam interdum tincidunt. Donec nec nisl pharetra, tincidunt sem a, maximus tortor. Donec ac dui sagittis, imperdiet lacus vel, vestibulum magna. Suspendisse consequat mi leo, at consectetur diam cursus vel.</p>
           </div>
         </div>
-        <RelatedProducts />
+        <div className={'content-fluid mt-4'}>
+          <div className={'container'}>
+            <div className={'row bg-gray py-1'}>
+              <div className='col-12'>
+                <p className='my-0 fw-semibold text-serif text-dark-gray'>
+                  COMPLETA TU LOOK
+                </p>
+              </div>
+            </div>
+            <div className={'row justify-content-between my-2 mb-5'}>
+              {
+                DataProducts.products.map((product, index) => {
+                  return <RelatedProduct product={product} key={index} />
+                })
+              }
+            </div>
+          </div>
+        </div>
         <RecommendedProducts />
       </main>
       <Footer />
