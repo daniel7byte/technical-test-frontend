@@ -20,7 +20,7 @@ export default function Home () {
               GitHub: <a href='https://github.com/daniel7byte/technical-test-frontend'>https://github.com/daniel7byte/technical-test-frontend</a>
             </p>
             <div className='text-center'>
-              <Link href={'/products/1'} className={'btn btn-danger text-white bg-red-wine mt-3'}>
+              <Link href={'/products/G7'} className={'btn btn-danger text-white bg-red-wine mt-3'}>
                 Ir a la página
               </Link>
             </div>
