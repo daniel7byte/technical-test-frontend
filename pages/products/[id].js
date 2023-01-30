@@ -143,7 +143,7 @@ export default function Home ({ product, products }) {
 // Server Side Rendering
 export async function getServerSideProps (context) {
   const { id } = context.query
-  const res = await axios.get(`http://localhost:3000/api/products`)
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/products`)
   const { data: { products } } = res.data
 
   const product = products.find(product => product.referencia === id)
