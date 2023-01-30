@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import RelatedProduct from '../../components/RelatedProduct'
 import RecommendedProducts from '../../components/RecommendedProducts'
+import axios from 'axios'
 
 function currencyFormat (num) {
   return '$' + num?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
@@ -149,4 +150,19 @@ export default function Home () {
       <Footer />
     </>
   )
+}
+
+export async function getServerSideProps (context) {
+  const { id } = context.query
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/products`)
+  const { data: { products } } = res.data
+
+  const product = products.find(product => product.referencia === id)
+
+  return {
+    props: {
+      product: product,
+      products: products
+    }
+  }
 }
