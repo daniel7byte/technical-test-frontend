@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import RelatedProduct from '../../components/RelatedProduct'
@@ -10,7 +11,18 @@ function currencyFormat (num) {
   return '$' + num?.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
 }
 
-export default function Home ({ product, products }) {
+// JSON
+import DataProducts from '../../json/products'
+
+export default function Home () {
+
+  const router = useRouter()
+  const { id } = router.query
+
+  const productPage = DataProducts.products.find(product => product.referencia === id)
+
+  console.log('productPage', productPage)
+
   return (
     <>
       <Head>
@@ -28,7 +40,7 @@ export default function Home ({ product, products }) {
         </div>
         <div className={'row'}>
           <div className={'col-6'}>
-            <Image src={`/img/${product?.foto}`} width={'500'} height={'400'} />
+            <Image src={`/img/${productPage?.foto}`} width={'500'} height={'400'} />
             <hr />
             <div className={'row justify-content-between'}>
               <div className={'col-2'}>
@@ -49,9 +61,9 @@ export default function Home ({ product, products }) {
             </div>
           </div>
           <div className={'col-6'}>
-            <h1 className='h3 text-serif text-dark-gray'>{product?.nombre}</h1>
-            <p className='my-1 text-red-wine text-serif'>{currencyFormat(product?.precio)}</p>
-            <p className='my-1 text-black-50'>Cod. de producto {product?.referencia}</p>
+            <h1 className='h3 text-serif text-dark-gray'>{productPage?.nombre}</h1>
+            <p className='my-1 text-red-wine text-serif'>{currencyFormat(productPage?.precio)}</p>
+            <p className='my-1 text-black-50'>Cod. de producto {productPage?.referencia}</p>
             <p className='my-1 mt-3'>COLOR</p>
             <div className='row'>
               <div className='col-2'>
@@ -126,7 +138,7 @@ export default function Home ({ product, products }) {
             </div>
             <div className={'row justify-content-between my-2 mb-5'}>
               {
-                products.map((product, index) => {
+                DataProducts.products.map((product, index) => {
                   return <RelatedProduct product={product} key={index} />
                 })
               }
@@ -140,7 +152,6 @@ export default function Home ({ product, products }) {
   )
 }
 
-// Server Side Rendering
 export async function getServerSideProps (context) {
   const { id } = context.query
   const res = await axios.get(`${process.env.NEXT_PUBLIC_URL}/api/products`)
