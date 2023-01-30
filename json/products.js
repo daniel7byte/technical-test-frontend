@@ -1,4 +1,4 @@
-{
+const data = {
   "products": [
     {
       "nombre": "Zapato azul",
@@ -122,3 +122,5 @@
     }
   ]
 }
+
+export default data
